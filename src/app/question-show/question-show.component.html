@@ -1,0 +1,5 @@
+<h3>{{ question.QuestionText }}</h3>
+
+<app-answer-get></app-answer-get>
+
+<app-answer-show *ngFor="let QuestionAnswer of QuestionAnswers" [id]="QuestionAnswer"></app-answer-show>

@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Title</label>
+        <input type="text" class="form-control" formControlName="AnswerTitle" #AnswerTitle />
+      </div>
+      <div *ngIf="angForm.controls['AnswerTitle'].invalid && (angForm.controls['AnswerTitle'].dirty || angForm.controls['AnswerTitle'].touched)"  class="alert alert-danger">
+        <div *ngIf="angForm.controls['AnswerTitle'].errors.required">
+          Answer title is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">URL</label>
+        <input type="text" class="form-control" formControlName="AnswerUrl" #AnswerUrl />
+      </div>
+      <div *ngIf="angForm.controls['AnswerUrl'].invalid && (angForm.controls['AnswerUrl'].dirty || angForm.controls['AnswerUrl'].touched)"  class="alert alert-danger">
+        <div *ngIf="angForm.controls['AnswerUrl'].errors.required">
+          Answer URL is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Blurb</label>
+        <textarea class="form-control" formControlName="AnswerBlurb" #AnswerBlurb></textarea>
+      </div>
+      <div *ngIf="angForm.controls['AnswerBlurb'].invalid && (angForm.controls['AnswerBlurb'].dirty || angForm.controls['AnswerBlurb'].touched)"  class="alert alert-danger">
+        <div *ngIf="angForm.controls['AnswerBlurb'].errors.required">
+          Answer blurb is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = 'updateAnswer(AnswerTitle.value, AnswerUrl.value, AnswerBlurb.value, ["freedom", "speech"])' type="submit" [disabled]="angForm.invalid" class="btn btn-primary">Update Answer</button>
+      </div>
+    </form>
+  </div>
+</div>

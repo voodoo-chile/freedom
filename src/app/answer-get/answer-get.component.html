@@ -1,0 +1,23 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>Answer Title</td>
+      <td>Answer URL</td>
+      <td>Answer Blurb</td>
+      <td>Answer Tags</td>
+      <td colspan="2">Actions</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let answer of answers">
+      <td>{{ answer.AnswerTitle }}</td>
+      <td>{{ answer.AnswerUrl }}</td>
+      <td>{{ answer.AnswerBlurb }}</td>
+      <td>{{ answer.AnswerTags }}</td>
+      <td><a [routerLink]="['/answer/edit', answer._id]" class="btn btn-primary">Edit</a>
+      </td>
+      <td><a (click) = "deleteAnswer(answer._id)" class="btn btn-danger">Delete</a></td>
+    </tr>
+  </tbody>
+</table>

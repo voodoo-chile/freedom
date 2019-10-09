@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Question Text</label>
+        <input type="text" class="form-control" formControlName="QuestionText" #QuestionText />
+      </div>
+      <div *ngIf="angForm.controls['QuestionText'].invalid && (angForm.controls['QuestionText'].dirty || angForm.controls['QuestionText'].touched)"  class="alert alert-danger">
+        <div *ngIf="angForm.controls['QuestionText'].errors.required">
+          Question text is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "updateQuestion(QuestionText.value, [1], [1])" type="submit" class="btn btn-primary" [disabled]="angForm.invalid">
+          Update Question
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
