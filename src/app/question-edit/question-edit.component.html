@@ -1,8 +1,8 @@
 <div class="card">
   <div class="card-body">
-    <form [formGroup]="angForm" novalidate>
+    <form *ngIf="angForm" [formGroup]="angForm" (ngSubmit)="updateQuestion()" novalidate>
       <div class="form-group">
-        <label class="col-md-4">Question Text</label>
+        <label class="col-md-4">Question</label>
         <input type="text" class="form-control" formControlName="QuestionText" #QuestionText />
       </div>
       <div *ngIf="angForm.controls['QuestionText'].invalid && (angForm.controls['QuestionText'].dirty || angForm.controls['QuestionText'].touched)"  class="alert alert-danger">
@@ -11,9 +11,32 @@
         </div>
       </div>
       <div class="form-group">
-        <button (click) = "updateQuestion(QuestionText.value, [1], [1])" type="submit" class="btn btn-primary" [disabled]="angForm.invalid">
-          Update Question
-        </button>
+        <label class="col-md-4">Tags (comma separated)</label>
+        <input type="text" class="form-control" formControlName="QuestionTags" #QuestionTags />
+      </div>
+      <label class="col-md-4">Answers</label>
+      <div class="form-group">
+        <div class="container"> 
+          <label formArrayName="AnswersArray" *ngFor="let answer of angForm.controls.AnswersArray.controls; let i = index">
+            <div class="row">
+              <div class="col-sm text-center">
+                <input type="checkbox" [formControlName]="i">
+              </div>
+              <div class="col-sm-9">
+                <a href="{{answers[i].AnswerUrl}}" target="_blank">{{answers[i].AnswerTitle}}</a>
+              </div>
+              <div class="col-sm-2">{{answers[i].AnswerTags}}</div>
+            </div>  
+            <div class="row mb-3">
+              <div class="col-sm-10 offset-sm-1">
+                {{answers[i].AnswerBlurb}}
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Update Question</button>
       </div>
     </form>
   </div>

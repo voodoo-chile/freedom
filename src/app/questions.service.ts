@@ -11,13 +11,12 @@ export class QuestionsService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  addQuestion(QuestionText, QuestionAnswers, QuestionCategories) {
+  addQuestion(QuestionText, QuestionAnswers, QuestionTags) {
     const obj = {
       QuestionText, 
       QuestionAnswers, 
-      QuestionCategories
+      QuestionTags
     };
-    console.log(obj);
     this.http.post(`${this.uri}/add`, obj)
         .subscribe(res => this.router.navigate(['questions']));
   }
@@ -38,11 +37,11 @@ export class QuestionsService {
              .get(`${this.uri}/edit/${id}`);
   }
 
-  updateQuestion(QuestionText, QuestionAnswers, QuestionCategories, id) {
+  updateQuestion(QuestionText, QuestionAnswers, QuestionTags, id) {
     const obj = {
       QuestionText,
       QuestionAnswers,
-      QuestionCategories
+      QuestionTags
     };
     this
       .http

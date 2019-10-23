@@ -1,4 +1,16 @@
-
-  {{ answer.AnswerTitle }}<br/>
-  {{ answer.AnswerUrl }}<br/>
-  {{ answer.AnswerBlurb }}
+<div *ngIf="answer" class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+        <a href="{{ answer.AnswerUrl }}">{{ answer.AnswerTitle }}</a>
+        <div>{{ answer.AnswerBlurb }}</div>
+      </div>
+      <div class="col-md-2">
+        Tags:
+        <div *ngFor="let tag of answer.AnswerTags">
+          {{tag}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -46,7 +46,7 @@ questionRoutes.route('/update/:id').post(function(req, res) {
     else {
       question.QuestionText = req.body.QuestionText;
       question.QuestionAnswers = req.body.QuestionAnswers;
-      question.QuestionCategories = req.body.QuestionCategories;
+      question.QuestionTags = req.body.QuestionTags;
 
       question.save().then(question => {
         res.json(question);

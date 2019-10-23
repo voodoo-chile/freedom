@@ -1,6 +1,6 @@
 export default class Question {
   QuestionText: string;
-  QuestionAnswers: number[];
+  QuestionAnswers: string[];
   answerTitles: string[];
-  QuestionCategories: number[];
+  QuestionTags: string[];
 }

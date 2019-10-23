@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionsService } from '../questions.service';
+import Answer from '../Answer';
+import { AnswersService } from '../answers.service';
 
 @Component({
   selector: 'app-question-edit',
@@ -12,25 +14,36 @@ export class QuestionEditComponent implements OnInit {
 
   angForm: FormGroup;
   question: any = {};
+  answers: Answer[];
 
   constructor(private route: ActivatedRoute, 
               private router: Router, 
-              private qs: QuestionsService, 
+              private qs: QuestionsService,
+              private as: AnswersService, 
               private fb: FormBuilder) {
-    this.createForm();
+
   }
 
   createForm() {
+    const formControls = this.answers.map(control => new FormControl(this.question.QuestionAnswers.includes(control._id)));
     this.angForm = this.fb.group({
       QuestionText: ['', Validators.required ],
-      QuestionAnswers: [''],
-      QuestionCategories: ['']
+      AnswersArray: new FormArray(formControls),
+      QuestionTags: ['']
     });
-  }
+    this.angForm.get('QuestionText').setValue(this.question.QuestionText);
+    this.angForm.get('QuestionTags').setValue(this.question.QuestionTags.join(", "));
+  } 
 
-  updateQuestion(QuestionText, QuestionAnswers, QuestionCategories, id) {
+  updateQuestion(QuestionText, QuestionAnswers, QuestionTags, id) {
+    const selectedAnswers = this.angForm.value.AnswersArray
+      .map((checked, index) => checked ? this.answers[index]._id : null)
+      .filter(value => value !== null)
     this.route.params.subscribe(params => {
-      this.qs.updateQuestion(QuestionText, QuestionAnswers, QuestionCategories, params.id);
+      const categories = this.angForm.value.QuestionTags.split(",").map((category) => {
+        return category.trim()
+      });
+      this.qs.updateQuestion(this.angForm.value.QuestionText, selectedAnswers, categories, params.id);
     });
   }
 
@@ -38,7 +51,12 @@ export class QuestionEditComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.qs.editQuestion(params['id']).subscribe(res => {
         this.question = res;
-        this.angForm.get('QuestionText').setValue(this.question.QuestionText);
+        this.as
+          .getAnswers()
+          .subscribe((data: Answer[]) => {
+            this.answers = data;
+            this.createForm();
+          });
       });
     });
   }

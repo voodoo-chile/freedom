@@ -14,8 +14,9 @@ export class QuestionAddComponent implements OnInit {
   angForm: FormGroup;
   answers: Answer[];
 
-  constructor(private fb: FormBuilder, private qs: QuestionsService, private as: AnswersService) {     
-
+  constructor(private fb: FormBuilder, 
+              private qs: QuestionsService, 
+              private as: AnswersService) {     
   }
 
   createForm() {
@@ -23,7 +24,7 @@ export class QuestionAddComponent implements OnInit {
     this.angForm = this.fb.group({
       QuestionText: ['', Validators.required ],
       AnswersArray: new FormArray(formControls),
-      QuestionCategories: ['']
+      QuestionTags: ['']
 
     });
   }
@@ -32,7 +33,10 @@ export class QuestionAddComponent implements OnInit {
     const selectedAnswers = this.angForm.value.AnswersArray
       .map((checked,index) => checked ? this.answers[index]._id : null)
       .filter(value => value !== null);
-    this.qs.addQuestion(this.angForm.value.QuestionText, selectedAnswers, this.angForm.value.QuestionCategories);
+    const categories = this.angForm.value.QuestionTags.split(",").map((category) => {
+      return category.trim()
+    });
+    this.qs.addQuestion(this.angForm.value.QuestionText, selectedAnswers, categories);
   }
 
   ngOnInit() {

@@ -8,8 +8,8 @@ let Question = new Schema({
   QuestionAnswers: {
     type: [String]
   },
-  QuestionCategories: {
-    type: [Number]
+  QuestionTags: {
+    type: [String]
   }
 }, {
   collection: 'Question'
