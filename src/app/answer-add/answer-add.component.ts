@@ -17,14 +17,15 @@ export class AnswerAddComponent implements OnInit {
   createForm() {
     this.angForm = this.fb.group({
       AnswerTitle: ['', Validators.required ],
+      AnswerAuthor: ['', Validators.required ],
       AnswerUrl: ['', Validators.required ],
       AnswerBlurb: ['', Validators.required ],
       AnswerTags: ['']
     })
   }
 
-  addAnswer(AnswerTitle, AnswerUrl, AnswerBlurb, AnswerTags) {
-    this.as.addAnswer(AnswerTitle, AnswerUrl, AnswerBlurb, AnswerTags);
+  addAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, AnswerTags) {
+    this.as.addAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, AnswerTags);
   }
 
   ngOnInit() {

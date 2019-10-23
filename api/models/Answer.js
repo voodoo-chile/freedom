@@ -5,6 +5,9 @@ let Answer = new Schema({
   AnswerTitle: {
     type: String
   },
+  AnswerAuthor: {
+    type: String
+  },
   AnswerUrl: {
     type: String
   },

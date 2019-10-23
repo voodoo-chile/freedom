@@ -11,9 +11,10 @@ export class AnswersService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  addAnswer(AnswerTitle, AnswerUrl, AnswerBlurb, AnswerTags){
+  addAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, AnswerTags){
     const obj = {
       AnswerTitle, 
+      AnswerAuthor,
       AnswerUrl,
       AnswerBlurb, 
       AnswerTags
@@ -38,9 +39,10 @@ export class AnswersService {
              .get(`${this.uri}/edit/${id}`);
   }
 
-  updateAnswer(AnswerTitle, AnswerUrl, AnswerBlurb, AnswerTags, id) {
+  updateAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, AnswerTags, id) {
     const obj = {
       AnswerTitle, 
+      AnswerAuthor,
       AnswerUrl, 
       AnswerBlurb, 
       AnswerTags

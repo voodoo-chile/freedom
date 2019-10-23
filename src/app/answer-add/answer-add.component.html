@@ -11,6 +11,15 @@
         </div>
       </div>
       <div class="form-group">
+        <label class="col-md-4">Author</label>
+        <input type="text" class="form-control" formControlName="AnswerAuthor" #AnswerAuthor />
+      </div>
+      <div *ngIf="angForm.controls['AnswerAuthor'].invalid && (angForm.controls['AnswerAuthor'].dirty || angForm.controls['AnswerAuthor'].touched)"  class="alert alert-danger">
+        <div *ngIf="angForm.controls['AnswerAuthor'].errors.required">
+          Answer author is required.
+        </div>
+      </div>
+      <div class="form-group">
         <label class="col-md-4">URL</label>
         <input type="text" class="form-control" formControlName="AnswerUrl" #AnswerUrl />
       </div>
@@ -29,7 +38,16 @@
         </div>
       </div>
       <div class="form-group">
-        <button (click) = 'addAnswer(AnswerTitle.value, AnswerUrl.value, AnswerBlurb.value, ["freedom", "speech"])' type="submit" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Create Answer</button>
+        <label class="col-md-4">Tags (comma separated)</label>
+        <input type="text" class="form-control" formControlName="AnswerTags" #AnswerTags />
+      </div>
+      <div *ngIf="angForm.controls['AnswerTags'].invalid && (angForm.controls['AnswerTags'].dirty || angForm.controls['AnswerTags'].touched)"  class="alert alert-danger">
+        <div *ngIf="angForm.controls['AnswerTags'].errors.required">
+          Answer tags required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = 'addAnswer(AnswerTitle.value, AnswerAuthor.value, AnswerUrl.value, AnswerBlurb.value, AnswerTags.value)' type="submit" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Create Answer</button>
       </div>
     </form>
   </div>

@@ -40,10 +40,10 @@ export class QuestionEditComponent implements OnInit {
       .map((checked, index) => checked ? this.answers[index]._id : null)
       .filter(value => value !== null)
     this.route.params.subscribe(params => {
-      const categories = this.angForm.value.QuestionTags.split(",").map((category) => {
-        return category.trim()
+      const tags = this.angForm.value.QuestionTags.split(",").map((tag) => {
+        return tag.trim()
       });
-      this.qs.updateQuestion(this.angForm.value.QuestionText, selectedAnswers, categories, params.id);
+      this.qs.updateQuestion(this.angForm.value.QuestionText, selectedAnswers, tags, params.id);
     });
   }
 

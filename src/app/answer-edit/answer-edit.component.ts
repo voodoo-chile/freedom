@@ -23,15 +23,19 @@ export class AnswerEditComponent implements OnInit {
   createForm() {
     this.angForm = this.fb.group({
       AnswerTitle: ['', Validators.required ],
+      AnswerAuthor: ['', Validators.required ],
       AnswerUrl: ['', Validators.required ],
       AnswerBlurb: ['', Validators.required],
       AnswerTags: ['']
     });
   }
 
-  updateAnswer(AnswerTitle, AnswerUrl, AnswerBlurb, AnswerTags, id) {
+  updateAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, AnswerTags, id) {
     this.route.params.subscribe(params => {
-      this.as.updateAnswer(AnswerTitle, AnswerUrl, AnswerBlurb, AnswerTags, params.id);
+      const tags = AnswerTags.split(",").map((tag) => {
+        return tag.trim()
+      });
+      this.as.updateAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, tags, params.id);
     });
   }
 
@@ -40,7 +44,10 @@ export class AnswerEditComponent implements OnInit {
       this.as.editAnswer(params['id']).subscribe(res => {
         this.answer = res;
         this.angForm.get('AnswerTitle').setValue(this.answer.AnswerTitle);
+        this.angForm.get('AnswerAuthor').setValue(this.answer.AnswerAuthor);
         this.angForm.get('AnswerUrl').setValue(this.answer.AnswerUrl);
+        this.angForm.get('AnswerBlurb').setValue(this.answer.AnswerBlurb);
+        this.angForm.get('AnswerTags').setValue(this.answer.AnswerTags.join(", "));
       });
     });
   }

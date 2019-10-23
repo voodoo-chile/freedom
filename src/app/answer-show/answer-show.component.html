@@ -1,16 +1,19 @@
 <div *ngIf="answer" class="card mb-3">
   <div class="card-body">
     <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-8">
         <a href="{{ answer.AnswerUrl }}">{{ answer.AnswerTitle }}</a>
-        <div>{{ answer.AnswerBlurb }}</div>
       </div>
-      <div class="col-md-2">
-        Tags:
-        <div *ngFor="let tag of answer.AnswerTags">
-          {{tag}}
+      <div class="col-md-2">{{ answer.AnswerAuthor }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">{{ answer.AnswerBlurb }}</div>
+        <div class="col-md-2">
+          Tags:
+          <div *ngFor="let tag of answer.AnswerTags">
+            {{tag}}
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>

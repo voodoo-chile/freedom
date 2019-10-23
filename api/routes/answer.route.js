@@ -45,6 +45,7 @@ answerRoutes.route('/update/:id').post(function(req, res) {
       res.status(404).send('Record not found');
     else {
       answer.AnswerTitle = req.body.AnswerTitle;
+      answer.AnswerAuthor = req.body.AnswerAuthor;
       answer.AnswerUrl = req.body.AnswerUrl;
       answer.AnswerBlurb = req.body.AnswerBlurb;
       answer.AnswerTags = req.body.AnswerTags;
