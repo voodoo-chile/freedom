@@ -25,7 +25,10 @@ export class AnswerAddComponent implements OnInit {
   }
 
   addAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, AnswerTags) {
-    this.as.addAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, AnswerTags);
+    const tags = AnswerTags.split(",").map((tag) => {
+      return tag.trim()
+    });
+    this.as.addAnswer(AnswerTitle, AnswerAuthor, AnswerUrl, AnswerBlurb, tags);
   }
 
   ngOnInit() {
