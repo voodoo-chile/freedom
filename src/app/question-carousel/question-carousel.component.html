@@ -1,4 +1,4 @@
-<carousel>
+<carousel [showIndicators]="false" [interval]="3000">
   <slide *ngFor="let question of questions">
     <a [routerLink]="['/question', question._id]">
       <h1>{{ question.QuestionText }}</h1>
