@@ -28,6 +28,9 @@ import { QuestionsService } from './questions.service';
 import { QuestionShowComponent } from './question-show/question-show.component';
 import { AnswerShowComponent } from './answer-show/answer-show.component';
 import { AnswerListComponent } from './answer-list/answer-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { QuestionCarouselComponent } from './question-carousel/question-carousel.component';
 
 @NgModule({
   declarations: [
@@ -50,14 +53,17 @@ import { AnswerListComponent } from './answer-list/answer-list.component';
     BlurbEditComponent,
     QuestionShowComponent,
     AnswerShowComponent,
-    AnswerListComponent
+    AnswerListComponent,
+    QuestionCarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SlimLoadingBarModule
+    SlimLoadingBarModule,
+    BrowserAnimationsModule,
+    CarouselModule.forRoot()
   ],
   providers: [ QuestionsService ],
   bootstrap: [AppComponent]

@@ -1,0 +1,7 @@
+<carousel>
+  <slide *ngFor="let question of questions">
+    <a [routerLink]="['/question', question._id]">
+      <h1>{{ question.QuestionText }}</h1>
+    </a>
+  </slide>
+</carousel>
