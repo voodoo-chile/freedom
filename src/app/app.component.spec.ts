@@ -1,6 +1,15 @@
-import { TestBed, async } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+
+@Component({
+  selector: 'ng2-slim-loading-bar',
+  template: '<p>Mock Slim loading bar</p>'
+})
+class MockLoadingBar {};
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,8 +18,12 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        MockLoadingBar
       ],
+      providers: [
+        SlimLoadingBarService
+      ]
     }).compileComponents();
   }));
 
@@ -26,10 +39,34 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('freedom');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('freedom app is running!');
+  describe('nav bar', () => {
+    let fixture: ComponentFixture<AppComponent>
+    let compiled
+
+    beforeEach(() => {
+      fixture = TestBed.createComponent(AppComponent);
+      fixture.detectChanges();
+      compiled = fixture.debugElement.nativeElement;
+    });
+
+    it('should have a nav link to home', () => {
+      expect(compiled.querySelectorAll('.nav-link')[0].textContent).toContain('Home');
+    });
+
+    it('should have a nav link to Create Questions', () => {
+      expect(compiled.querySelectorAll('.nav-link')[1].textContent).toContain('Create Question');
+    });
+
+    it('should have a nav link to Questions', () => {
+      expect(compiled.querySelectorAll('.nav-link')[2].textContent).toContain('Questions');
+    });
+
+    it('should have a nav link to Create Answer', () => {
+      expect(compiled.querySelectorAll('.nav-link')[3].textContent).toContain('Create Answer');
+    });
+
+    it('should have a nav link to Answers', () => {
+      expect(compiled.querySelectorAll('.nav-link')[4].textContent).toContain('Answers');
+    });
   });
 });
