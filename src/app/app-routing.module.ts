@@ -8,13 +8,14 @@ import { QuestionGetComponent } from './question-get/question-get.component';
 import { AnswerAddComponent } from './answer-add/answer-add.component';
 import { AnswerEditComponent } from './answer-edit/answer-edit.component';
 import { AnswerGetComponent } from './answer-get/answer-get.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    component: QuestionCarouselComponent
+    component: HomeComponent
   },
   {
     path: 'question/create',

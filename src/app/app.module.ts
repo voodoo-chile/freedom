@@ -31,6 +31,8 @@ import { AnswerListComponent } from './answer-list/answer-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { QuestionCarouselComponent } from './question-carousel/question-carousel.component';
+import { HomeComponent } from './home/home.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { QuestionCarouselComponent } from './question-carousel/question-carousel
     QuestionShowComponent,
     AnswerShowComponent,
     AnswerListComponent,
-    QuestionCarouselComponent
+    QuestionCarouselComponent,
+    HomeComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
