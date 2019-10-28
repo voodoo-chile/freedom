@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuestionShowComponent } from './question-show.component';
+import { AnswerShowComponent } from '../answer-show/answer-show.component';
 
 describe('QuestionShowComponent', () => {
   let component: QuestionShowComponent;
