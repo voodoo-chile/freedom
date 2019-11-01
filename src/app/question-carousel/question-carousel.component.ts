@@ -29,6 +29,7 @@ export class QuestionCarouselComponent implements OnInit {
         
         this.questions = data
       });
+  
   }
 
 }

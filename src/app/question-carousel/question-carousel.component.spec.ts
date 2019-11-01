@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { QuestionCarouselComponent } from './question-carousel.component';
 
@@ -8,6 +11,11 @@ describe('QuestionCarouselComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ 
+        CarouselModule.forRoot(),
+        RouterTestingModule,
+        HttpClientTestingModule
+        ],
       declarations: [ QuestionCarouselComponent ]
     })
     .compileComponents();
@@ -22,4 +30,10 @@ describe('QuestionCarouselComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a questions array', () => {
+    expect(component.questions).toEqual([]);
+  });
+
+
 });
