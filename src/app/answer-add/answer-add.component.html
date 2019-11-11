@@ -3,7 +3,7 @@
     <form [formGroup]="angForm" novalidate>
       <div class="form-group">
         <label class="col-md-4">Title</label>
-        <input type="text" class="form-control" formControlName="AnswerTitle" #AnswerTitle />
+        <input type="text" class="form-control" formControlName="AnswerTitle" #AnswerTitle id="answerTitleInput"/>
       </div>
       <div *ngIf="angForm.controls['AnswerTitle'].invalid && (angForm.controls['AnswerTitle'].dirty || angForm.controls['AnswerTitle'].touched)"  class="alert alert-danger">
         <div *ngIf="angForm.controls['AnswerTitle'].errors.required">
@@ -12,7 +12,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Author</label>
-        <input type="text" class="form-control" formControlName="AnswerAuthor" #AnswerAuthor />
+        <input type="text" class="form-control" formControlName="AnswerAuthor" #AnswerAuthor id="answerAuthorInput" />
       </div>
       <div *ngIf="angForm.controls['AnswerAuthor'].invalid && (angForm.controls['AnswerAuthor'].dirty || angForm.controls['AnswerAuthor'].touched)"  class="alert alert-danger">
         <div *ngIf="angForm.controls['AnswerAuthor'].errors.required">
@@ -21,7 +21,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">URL</label>
-        <input type="text" class="form-control" formControlName="AnswerUrl" #AnswerUrl />
+        <input type="text" class="form-control" formControlName="AnswerUrl" #AnswerUrl id="answerUrlInput" />
       </div>
       <div *ngIf="angForm.controls['AnswerUrl'].invalid && (angForm.controls['AnswerUrl'].dirty || angForm.controls['AnswerUrl'].touched)"  class="alert alert-danger">
         <div *ngIf="angForm.controls['AnswerUrl'].errors.required">
@@ -30,7 +30,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Blurb</label>
-        <textarea class="form-control" formControlName="AnswerBlurb" #AnswerBlurb></textarea>
+        <textarea class="form-control" formControlName="AnswerBlurb" #AnswerBlurb id="answerBlurbInput" ></textarea>
       </div>
       <div *ngIf="angForm.controls['AnswerBlurb'].invalid && (angForm.controls['AnswerBlurb'].dirty || angForm.controls['AnswerBlurb'].touched)"  class="alert alert-danger">
         <div *ngIf="angForm.controls['AnswerBlurb'].errors.required">
@@ -39,7 +39,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Tags (comma separated)</label>
-        <input type="text" class="form-control" formControlName="AnswerTags" #AnswerTags />
+        <input type="text" class="form-control" formControlName="AnswerTags" #AnswerTags id="answerTagsInput" />
       </div>
       <div *ngIf="angForm.controls['AnswerTags'].invalid && (angForm.controls['AnswerTags'].dirty || angForm.controls['AnswerTags'].touched)"  class="alert alert-danger">
         <div *ngIf="angForm.controls['AnswerTags'].errors.required">
