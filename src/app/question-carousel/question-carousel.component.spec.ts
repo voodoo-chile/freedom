@@ -32,7 +32,7 @@ describe('QuestionCarouselComponent', () => {
   });
 
   it('should have a questions array', () => {
-    expect(component.questions).toEqual([]);
+    expect(component.questions).not.toBe(null);
   });
 
 
