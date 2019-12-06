@@ -49,10 +49,10 @@ export class QuestionsService {
       .subscribe(res => this.router.navigate(['questions']));
   }
 
-  deleteQuestion(id) {
+  deleteQuestion(id: string) {
     return this
-             .http
-             .get(`${this.uri}/delete/${id}`);
+            .http
+            .get(`${this.uri}/delete/${id}`);
   }
 
 }
