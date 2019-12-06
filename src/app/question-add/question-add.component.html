@@ -12,10 +12,10 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Tags (comma separated)</label>
-        <input type="text" class="form-control" formControlName="QuestionTags" #QuestionTags />
+        <input type="text" class="form-control" formControlName="QuestionTags" #QuestionTags id="questionTagsInput" />
       </div>
       <label class="col-md-4">Answers</label>
-      <div class="form-group">
+      <div class="form-group" id="answersList">
         <div class="container"> 
           <label formArrayName="AnswersArray" *ngFor="let answer of angForm.controls.AnswersArray.controls; let i = index">
             <div class="row">

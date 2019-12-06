@@ -8,6 +8,14 @@ import { QuestionAddComponent } from './question-add.component';
 describe('QuestionAddComponent', () => {
   let component: QuestionAddComponent;
   let fixture: ComponentFixture<QuestionAddComponent>;
+  let answers = [{
+        _id: 'aaa',
+        AnswerTitle: 'blah blah',
+        AnswerAuthor: 'blah',
+        AnswerUrl: 'url',
+        AnswerBlurb: 'blbah',
+        AnswerTags: ['tag', 'tag2']
+      }];  
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,7 +32,8 @@ describe('QuestionAddComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(QuestionAddComponent);
     component = fixture.componentInstance;
-    component.ngOnInit();
+    component.answers = answers;
+    component.createForm();
     fixture.detectChanges();
   });
 
@@ -50,6 +59,14 @@ describe('QuestionAddComponent', () => {
 
     it('has a QuestionText input', () => {
       expect(compiled.querySelector('#questionTextInput')).toBeTruthy();
+    });
+
+    it('has a QuestionTags input', () => {
+      expect(compiled.querySelector('#questionTagsInput')).toBeTruthy();
+    });
+
+    it('has an answers list', () => {
+      expect(compiled.querySelector('#answersList')).toBeTruthy();
     });
   });
 
