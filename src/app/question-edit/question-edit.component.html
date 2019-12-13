@@ -3,7 +3,7 @@
     <form *ngIf="angForm" [formGroup]="angForm" (ngSubmit)="updateQuestion()" novalidate>
       <div class="form-group">
         <label class="col-md-4">Question</label>
-        <input type="text" class="form-control" formControlName="QuestionText" #QuestionText />
+        <input type="text" class="form-control" formControlName="QuestionText" #QuestionText id='questionTextInput' />
       </div>
       <div *ngIf="angForm.controls['QuestionText'].invalid && (angForm.controls['QuestionText'].dirty || angForm.controls['QuestionText'].touched)"  class="alert alert-danger">
         <div *ngIf="angForm.controls['QuestionText'].errors.required">
@@ -12,11 +12,11 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Tags (comma separated)</label>
-        <input type="text" class="form-control" formControlName="QuestionTags" #QuestionTags />
+        <input type="text" class="form-control" formControlName="QuestionTags" #QuestionTags id='questionTagsInput' />
       </div>
       <label class="col-md-4">Answers</label>
       <div class="form-group">
-        <div class="container"> 
+        <div class="container" id='answersList' > 
           <label formArrayName="AnswersArray" *ngFor="let answer of angForm.controls.AnswersArray.controls; let i = index">
             <div class="row">
               <div class="col-sm text-center">
