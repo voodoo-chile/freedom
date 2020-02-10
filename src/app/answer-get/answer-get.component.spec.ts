@@ -74,5 +74,71 @@ describe('AnswerGetComponent', () => {
     expect(compiled.querySelectorAll('.card').length).toEqual(mockAnswers.length);
   });
 
+  describe('cards', () => {
+    let compiled;
+
+    beforeEach(() => {
+      compiled = fixture.debugElement.nativeElement;
+    });
+    
+    it('should show the answer author', () => {
+      let firstId = '#answerAuthor-' + mockAnswers[0]._id;
+      let secondId = '#answerAuthor-' + mockAnswers[1]._id;
+      expect(compiled.querySelector(firstId)).toBeTruthy();
+      expect(compiled.querySelector(firstId).innerText).toEqual(mockAnswers[0].AnswerAuthor);
+      expect(compiled.querySelector(secondId)).toBeTruthy();
+      expect(compiled.querySelector(secondId).innerText).toEqual(mockAnswers[1].AnswerAuthor);
+    });
+    
+    it('should show the answer title', () => {
+      let firstId = '#answerTitle-' + mockAnswers[0]._id;
+      let secondId = '#answerTitle-' + mockAnswers[1]._id;
+      expect(compiled.querySelector(firstId)).toBeTruthy();
+      expect(compiled.querySelector(firstId).innerText).toEqual(mockAnswers[0].AnswerTitle);
+      expect(compiled.querySelector(secondId)).toBeTruthy();
+      expect(compiled.querySelector(secondId).innerText).toEqual(mockAnswers[1].AnswerTitle);
+    });
+    
+    it('should show the answer url', () => {
+      let firstId = '#answerUrl-' + mockAnswers[0]._id;
+      let secondId = '#answerUrl-' + mockAnswers[1]._id;
+      expect(compiled.querySelector(firstId)).toBeTruthy();
+      expect(compiled.querySelector(firstId).innerText).toEqual(mockAnswers[0].AnswerUrl); 
+      expect(compiled.querySelector(secondId)).toBeTruthy();
+      expect(compiled.querySelector(secondId).innerText).toEqual(mockAnswers[1].AnswerUrl);
+    });
+    
+    it('should show the answer blurb', () => {
+      let firstId = '#answerBlurb-' + mockAnswers[0]._id;
+      let secondId = '#answerBlurb-' + mockAnswers[1]._id;
+      expect(compiled.querySelector(firstId)).toBeTruthy();
+      expect(compiled.querySelector(firstId).innerText).toEqual(mockAnswers[0].AnswerBlurb); 
+      expect(compiled.querySelector(secondId)).toBeTruthy();
+      expect(compiled.querySelector(secondId).innerText).toEqual(mockAnswers[1].AnswerBlurb);
+    });
+    
+    it('should show the answer tags', () => {
+      let firstId = '#answerTags-' + mockAnswers[0]._id;
+      let secondId = '#answerTags-' + mockAnswers[1]._id;
+      expect(compiled.querySelector(firstId)).toBeTruthy();
+      expect(compiled.querySelector(secondId)).toBeTruthy();
+    });
+    
+    it('should have an edit answer button', () => {
+      let firstId = '#answerEditButton-' + mockAnswers[0]._id;
+      let secondId = '#answerEditButton-' + mockAnswers[1]._id;
+      expect(compiled.querySelector(firstId)).toBeTruthy();
+      expect(compiled.querySelector(secondId)).toBeTruthy();
+    });
+    
+    it('should have an edit delete button', () => {
+      let firstId = '#answerDeleteButton-' + mockAnswers[0]._id;
+      let secondId = '#answerDeleteButton-' + mockAnswers[1]._id;
+      expect(compiled.querySelector(firstId)).toBeTruthy();
+      expect(compiled.querySelector(secondId)).toBeTruthy();
+    });
+
+  });
+
   
 });
