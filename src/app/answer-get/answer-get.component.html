@@ -2,27 +2,27 @@
   <div *ngFor="let answer of answers" class="card mb-3">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8" id="answerTitle-{{answer._id}}">
           <h5>{{ answer.AnswerTitle }}</h5>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" id="answerAuthor-{{answer._id}}">
           {{ answer.AnswerAuthor }}
         </div>
       </div>
       <div class="row">
         <div class="col-md-9">
-          <div><a href="{{ answer.AnswerUrl }}">{{ answer.AnswerUrl }}</a></div>
-          <div>{{ answer.AnswerBlurb }}</div>
+          <div id="answerUrl-{{answer._id}}"><a href="{{ answer.AnswerUrl }}">{{ answer.AnswerUrl }}</a></div>
+          <div id="answerBlurb-{{answer._id}}">{{ answer.AnswerBlurb }}</div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2" id="answerTags-{{answer._id}}">
           <h5>Tags:</h5>
           <div *ngFor="let tag of answer.AnswerTags">
             {{ tag }}
           </div>
         </div>
         <div class="col-md-1">
-          <a [routerLink]="['/answer/edit', answer._id]" class="btn btn-primary">Edit</a>
-          <a (click) = 'deleteAnswer(answer._id)' class="btn btn-danger">Delete</a>
+          <a id="answerEditButton-{{answer._id}}" [routerLink]="['/answer/edit', answer._id]" class="btn btn-primary">Edit</a>
+          <a id="answerDeleteButton-{{answer._id}}" (click) = 'deleteAnswer(answer._id)' class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
