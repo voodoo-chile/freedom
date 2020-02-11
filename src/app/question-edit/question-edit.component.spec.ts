@@ -11,6 +11,7 @@ describe('QuestionEditComponent', () => {
   let component: QuestionEditComponent;
   let fixture: ComponentFixture<QuestionEditComponent>;
   let mockQuestion: Question = {
+      _id: 'a1a1',
       QuestionText: 'Mock question text',
       QuestionTags: ['mockTag1', 'mockTag2'],
       QuestionAnswers: ['aaa', 'bbb'],

@@ -12,11 +12,13 @@ describe('QuestionsService', () => {
   let httpMock: HttpTestingController;
   let router: Router;
   const dummyQuestions: Question[] = [{
+    _id: 'a1a1',
     QuestionText: 'this is a mock question',
     QuestionAnswers: ['aa1', 'aa2'],
     answerTitles: ['title1', 'title2'],
     QuestionTags: ['mockTag', 'mockTag2'] 
   }, {
+    _id: 'b2b2',
     QuestionText: 'this is also a mock question',
     QuestionAnswers: ['aa1', 'aa2'],
     answerTitles: ['title1', 'title2'],

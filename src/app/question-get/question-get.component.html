@@ -5,7 +5,7 @@
         <div class="col-md-8">
           <h5>Question</h5>
           <div class="ml-3">
-            <a [routerLink]="['/question', question._id]">
+            <a class="questionTextLink" [routerLink]="['/question', question._id]">
               {{question.QuestionText}}
             </a>
           </div>
@@ -16,13 +16,13 @@
         </div>
         <div class="col-md-2">
           <h5>Tags</h5>
-          <div *ngFor="let tag of question.QuestionTags">
+          <div class="questionTag" *ngFor="let tag of question.QuestionTags">
             {{tag}}
           </div>
         </div>
         <div class="col-md-2">
-          <a [routerLink]="['/question/edit', question._id]" class="btn btn-primary">Edit</a>
-          <a (click) = "deleteQuestion(question._id)" class="btn btn-danger">Delete</a>
+          <a [routerLink]="['/question/edit', question._id]" class="btn btn-primary questionEditButton">Edit</a>
+          <a (click) = "deleteQuestion(question._id)" class="btn btn-danger questionDeleteButton">Delete</a>
         </div>
       </div>
     </div>
