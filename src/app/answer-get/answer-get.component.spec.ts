@@ -51,10 +51,6 @@ describe('AnswerGetComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('has an answers array', () => {
     expect(component.answers).not.toBe(null);
     expect(component.answers).toEqual(mockAnswers);

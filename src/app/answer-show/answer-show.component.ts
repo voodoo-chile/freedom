@@ -9,7 +9,7 @@ import { AnswersService } from '../answers.service';
 })
 export class AnswerShowComponent implements OnInit {
 
-  answer: any = {};
+  answer: any;
 
   @Input() id: string;
 
