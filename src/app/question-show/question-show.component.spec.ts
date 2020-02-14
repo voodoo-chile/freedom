@@ -36,10 +36,6 @@ describe('QuestionShowComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should have a question', () => {
     expect(component.question).not.toBe(null);
   });

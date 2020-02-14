@@ -37,10 +37,6 @@ describe('QuestionAddComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should have an answers array', () => {
     expect(component.answers).not.toBe(null);
   });
