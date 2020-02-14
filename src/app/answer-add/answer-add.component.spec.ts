@@ -26,11 +26,7 @@ describe('AnswerAddComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
+  
   it('has an answer form', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('form')).toBeTruthy();
