@@ -20,6 +20,7 @@ describe('TagSearchComponent', () => {
   });
 
   it('should create', () => {
+    console.log('help');
     expect(component).toBeTruthy();
   });
 });
