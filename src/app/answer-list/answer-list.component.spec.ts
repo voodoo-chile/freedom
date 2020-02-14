@@ -47,10 +47,6 @@ describe('AnswerListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should have an answers array', () => {
     expect(component.answers).toEqual([]);
   });

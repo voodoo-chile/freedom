@@ -47,10 +47,6 @@ describe('QuestionEditComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should have a question object', () => {
     expect(component.question).toEqual(mockQuestion);
   });

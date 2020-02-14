@@ -27,10 +27,6 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should have a Question Carousel component', async(() => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('app-question-carousel')).not.toBe(null);
