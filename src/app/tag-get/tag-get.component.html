@@ -1,1 +1,7 @@
-<p>tag-get works!</p>
+<div *ngFor="let tag of tags" class="card mb-3 tagCard">
+  <div class="tagName">
+    {{ tag.TagName }}
+  </div>
+  <button class="tagEditButton">Edit</button>
+  <button class="tagDeleteButton">Delete</button>
+</div>
