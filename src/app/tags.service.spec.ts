@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 
 import { TagsService } from "./tags.service";
 import Tag from "./Tag";
+import { SlimLoadingBarService } from "ng2-slim-loading-bar";
 
 describe("TagsService", () => {
   let service: TagsService;
@@ -34,9 +35,15 @@ describe("TagsService", () => {
     router = TestBed.get(Router);
   });
 
-  it("should be created", () => {
-    const service: TagsService = TestBed.get(TagsService);
-    expect(service).toBeTruthy();
+  // Test custom method tagAdd(TagName)
+  it("addTag method should send a tag to the API via POST", () => {
+    const navigateSpy = spyOn(router, "navigate");
+    service.addTag(mockTags[0].TagName);
+    const response = { Tag: "Tag has been added successfully" };
+    const request = httpMock.expectOne(`${service.uri}/add`);
+    expect(request.request.method).toBe("POST");
+    request.flush(response);
+    expect(navigateSpy).toHaveBeenCalledWith(["tags"]);
   });
 
   //test custom method getTags()
@@ -48,6 +55,42 @@ describe("TagsService", () => {
     const request = httpMock.expectOne(`${service.uri}`);
     expect(request.request.method).toBe("GET");
     request.flush(mockTags);
+  });
+
+  // test custom method getTag(id)
+  it("getTag method should retrieve a tag from the API via GET", () => {
+    const id: string = mockTags[0]._id;
+    service.getTag(id).subscribe((tag: Tag) => {
+      expect(tag).toBeTruthy();
+      expect(tag).toEqual(mockTags[0]);
+    });
+    const request = httpMock.expectOne(`${service.uri}/${id}`);
+    expect(request.request.method).toBe("GET");
+    request.flush(mockTags[0]);
+  });
+
+  // test custom method editTag(id)
+  it("editTag method should retrieve a tag from the API via GET", () => {
+    const id = mockTags[0]._id;
+    service.editTag(id).subscribe((tag: Tag) => {
+      expect(tag).toBeTruthy();
+      expect(tag).toEqual(mockTags[0]);
+    });
+    const request = httpMock.expectOne(`${service.uri}/edit/${id}`);
+    expect(request.request.method).toBe("GET");
+    request.flush(mockTags[0]);
+  });
+
+  // test custom method updateTag(TagName, id)
+  it("updateTag method should send a tag to the API via POST", () => {
+    const navigateSpy = spyOn(router, "navigate");
+    const id = mockTags[0]._id;
+    service.updateTag(mockTags[0].TagName, id);
+    const response = { Tag: "Tag has been updated successfully" };
+    const request = httpMock.expectOne(`${service.uri}/update/${id}`);
+    expect(request.request.method).toBe("POST");
+    request.flush(response);
+    expect(navigateSpy).toHaveBeenCalledWith(["tags"]);
   });
 
   //test custom method deleteTag(id)

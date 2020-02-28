@@ -10,8 +10,30 @@ export class TagsService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  addTag(TagName) {
+    const obj = { TagName };
+    this.http
+      .post(`${this.uri}/add`, obj)
+      .subscribe(res => this.router.navigate(["tags"]));
+  }
+
   getTags() {
     return this.http.get(`${this.uri}`);
+  }
+
+  getTag(id) {
+    return this.http.get(`${this.uri}/${id}`);
+  }
+
+  editTag(id) {
+    return this.http.get(`${this.uri}/edit/${id}`);
+  }
+
+  updateTag(TagName, id) {
+    const obj = { TagName };
+    return this.http
+      .post(`${this.uri}/update/${id}`, obj)
+      .subscribe(res => this.router.navigate(["tags"]));
   }
 
   deleteTag(id: string) {
