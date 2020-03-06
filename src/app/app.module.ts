@@ -33,6 +33,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { QuestionCarouselComponent } from './question-carousel/question-carousel.component';
 import { HomeComponent } from './home/home.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { TagListComponent } from './tag-list/tag-list.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
     AnswerListComponent,
     QuestionCarouselComponent,
     HomeComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    TagListComponent
   ],
   imports: [
     BrowserModule,
