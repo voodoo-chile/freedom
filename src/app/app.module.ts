@@ -18,15 +18,15 @@ import { TagGetComponent } from "./tag-get/tag-get.component";
 import { TagEditComponent } from "./tag-edit/tag-edit.component";
 import { TagSearchComponent } from "./tag-search/tag-search.component";
 
-import { QuestionsService } from './questions.service';
-import { QuestionShowComponent } from './question-show/question-show.component';
-import { AnswerShowComponent } from './answer-show/answer-show.component';
-import { AnswerListComponent } from './answer-list/answer-list.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { QuestionCarouselComponent } from './question-carousel/question-carousel.component';
-import { HomeComponent } from './home/home.component';
-import { TagListComponent } from './tag-list/tag-list.component';
+import { QuestionsService } from "./questions.service";
+import { QuestionShowComponent } from "./question-show/question-show.component";
+import { AnswerShowComponent } from "./answer-show/answer-show.component";
+import { AnswerListComponent } from "./answer-list/answer-list.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CarouselModule } from "ngx-bootstrap/carousel";
+import { QuestionCarouselComponent } from "./question-carousel/question-carousel.component";
+import { HomeComponent } from "./home/home.component";
+import { TagListComponent } from "./tag-list/tag-list.component";
 
 @NgModule({
   declarations: [
@@ -45,13 +45,8 @@ import { TagListComponent } from './tag-list/tag-list.component';
     AnswerShowComponent,
     AnswerListComponent,
     QuestionCarouselComponent,
-<<<<<<< HEAD
-    HomeComponent
-=======
     HomeComponent,
-    CategoryListComponent,
     TagListComponent
->>>>>>> development
   ],
   imports: [
     BrowserModule,
