@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
 import { TagListComponent } from "./tag-list.component";
 import Tag from "../Tag";
@@ -19,6 +21,7 @@ describe("TagListComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [TagListComponent]
     }).compileComponents();
   }));

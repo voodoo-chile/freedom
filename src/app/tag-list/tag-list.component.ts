@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
+import { TagsService } from "../tags.service";
 import Tag from "../Tag";
 
 @Component({
@@ -10,7 +11,11 @@ import Tag from "../Tag";
 export class TagListComponent implements OnInit {
   tags: Tag[];
 
-  constructor() {}
+  constructor(private ts: TagsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.ts.getTags().subscribe((data: Tag[]) => {
+      this.tags = data;
+    });
+  }
 }
