@@ -4,10 +4,13 @@ import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 
 import { TagAddComponent } from "./tag-add.component";
+import Tag from "../Tag";
+import { TagsService } from "../tags.service";
 
 describe("TagAddComponent", () => {
   let component: TagAddComponent;
   let fixture: ComponentFixture<TagAddComponent>;
+  let tagsService: TagsService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -16,17 +19,23 @@ describe("TagAddComponent", () => {
         RouterTestingModule,
         ReactiveFormsModule
       ],
-      declarations: [TagAddComponent]
+      declarations: [TagAddComponent],
+      providers: [TagsService]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TagAddComponent);
     component = fixture.componentInstance;
+    tagsService = TestBed.get(TagsService);
     fixture.detectChanges();
   });
 
-  xit("should have an addTag method", () => {});
+  it("should have an addTag method", () => {
+    let addTagServiceSpy = spyOn<any>(tagsService, "addTag");
+    component.addTag("tag1");
+    expect(addTagServiceSpy).toHaveBeenCalled();
+  });
 
   it("has a tag form", () => {
     const compiled = fixture.debugElement.nativeElement;

@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 import {
   HttpClientTestingModule,
-  HttpTestingController
+  HttpTestingController,
 } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { Router } from "@angular/router";
@@ -18,17 +18,17 @@ describe("TagsService", () => {
   const mockTags: Tag[] = [
     {
       _id: "aaa",
-      TagName: "Tag1"
+      Tag: "Tag1",
     },
     {
       _id: "bbb",
-      TagName: "Tag2"
-    }
+      Tag: "Tag2",
+    },
   ];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule],
     });
     service = TestBed.get(TagsService);
     httpMock = TestBed.get(HttpTestingController);
@@ -38,7 +38,7 @@ describe("TagsService", () => {
   // Test custom method tagAdd(TagName)
   it("addTag method should send a tag to the API via POST", () => {
     const navigateSpy = spyOn(router, "navigate");
-    service.addTag(mockTags[0].TagName);
+    service.addTag(mockTags[0].Tag);
     const response = { Tag: "Tag has been added successfully" };
     const request = httpMock.expectOne(`${service.uri}/add`);
     expect(request.request.method).toBe("POST");
@@ -85,7 +85,7 @@ describe("TagsService", () => {
   it("updateTag method should send a tag to the API via POST", () => {
     const navigateSpy = spyOn(router, "navigate");
     const id = mockTags[0]._id;
-    service.updateTag(mockTags[0].TagName, id);
+    service.updateTag(mockTags[0].Tag, id);
     const response = { Tag: "Tag has been updated successfully" };
     const request = httpMock.expectOne(`${service.uri}/update/${id}`);
     expect(request.request.method).toBe("POST");

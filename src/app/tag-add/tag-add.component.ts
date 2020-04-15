@@ -19,5 +19,9 @@ export class TagAddComponent implements OnInit {
     });
   }
 
+  addTag(tagName) {
+    this.ts.addTag(tagName);
+  }
+
   ngOnInit() {}
 }

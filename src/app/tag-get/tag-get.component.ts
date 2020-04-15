@@ -5,7 +5,7 @@ import { TagsService } from "../tags.service";
 @Component({
   selector: "app-tag-get",
   templateUrl: "./tag-get.component.html",
-  styleUrls: ["./tag-get.component.css"]
+  styleUrls: ["./tag-get.component.css"],
 })
 export class TagGetComponent implements OnInit {
   tags: Tag[];
@@ -13,7 +13,7 @@ export class TagGetComponent implements OnInit {
   constructor(private ts: TagsService) {}
 
   deleteTag(id) {
-    this.ts.deleteTag(id).subscribe(res => {
+    this.ts.deleteTag(id).subscribe((res) => {
       this.tags.splice(id, 1);
     });
   }
@@ -21,6 +21,7 @@ export class TagGetComponent implements OnInit {
   ngOnInit() {
     this.ts.getTags().subscribe((data: Tag[]) => {
       this.tags = data;
+      console.log(this.tags);
     });
   }
 }

@@ -3,18 +3,18 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class TagsService {
   uri = "http://localhost:4000/tags";
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  addTag(TagName) {
-    const obj = { TagName };
+  addTag(Tag) {
+    const obj = { Tag };
     this.http
       .post(`${this.uri}/add`, obj)
-      .subscribe(res => this.router.navigate(["tags"]));
+      .subscribe((res) => this.router.navigate(["tags"]));
   }
 
   getTags() {
@@ -33,7 +33,7 @@ export class TagsService {
     const obj = { TagName };
     return this.http
       .post(`${this.uri}/update/${id}`, obj)
-      .subscribe(res => this.router.navigate(["tags"]));
+      .subscribe((res) => this.router.navigate(["tags"]));
   }
 
   deleteTag(id: string) {

@@ -15,19 +15,19 @@ describe("TagGetComponent", () => {
   const mockTags: Tag[] = [
     {
       _id: "aaa",
-      TagName: "Tag1"
+      Tag: "Tag1",
     },
     {
       _id: "bbb",
-      TagName: "Tag2"
-    }
+      Tag: "Tag2",
+    },
   ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [TagGetComponent],
-      providers: [TagsService]
+      providers: [TagsService],
     }).compileComponents();
   }));
 
@@ -76,11 +76,11 @@ describe("TagGetComponent", () => {
     it("should show the tag name", () => {
       expect(firstCard.querySelector(".tagName")).toBeTruthy();
       expect(firstCard.querySelector(".tagName").innerText).toEqual(
-        mockTags[0].TagName
+        mockTags[0].Tag
       );
       expect(secondCard.querySelector(".tagName")).toBeTruthy();
       expect(secondCard.querySelector(".tagName").innerText).toEqual(
-        mockTags[1].TagName
+        mockTags[1].Tag
       );
     });
 

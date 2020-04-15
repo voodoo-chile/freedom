@@ -1,7 +1,27 @@
-<div *ngFor="let tag of tags" class="card mb-3 tagCard">
-  <div class="tagName">
-    {{ tag.TagName }}
+<div class="container">
+  <div *ngFor="let tag of tags" class="card mb-3 tagCard">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-10" id="tag-{{ tag._id }}">
+          <div class="tagName">
+            {{ tag.Tag }}
+          </div>
+        </div>
+        <div class="col-md-1">
+          <a
+            id="tagEditButton-{{ tag._id }}"
+            [routerLink]="['/tag/edit', tag._id]"
+            class="btn btn-primary tagEditButton"
+            >Edit</a
+          >
+          <a
+            id="tagDeleteButton-{{ tag._id }}"
+            (click)="deleteTag(tag._id)"
+            class="btn btn-danger tagDeleteButton"
+            >Delete</a
+          >
+        </div>
+      </div>
+    </div>
   </div>
-  <button class="tagEditButton">Edit</button>
-  <button class="tagDeleteButton">Delete</button>
 </div>

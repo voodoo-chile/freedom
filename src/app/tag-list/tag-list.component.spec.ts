@@ -11,18 +11,18 @@ describe("TagListComponent", () => {
   let mockTags: Tag[] = [
     {
       _id: "aaa",
-      TagName: "Tag1"
+      Tag: "Tag1",
     },
     {
       _id: "bbb",
-      TagName: "Tag2"
-    }
+      Tag: "Tag2",
+    },
   ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
-      declarations: [TagListComponent]
+      declarations: [TagListComponent],
     }).compileComponents();
   }));
 
@@ -42,12 +42,8 @@ describe("TagListComponent", () => {
     let tagList = compiled.querySelectorAll(".tagItem");
     expect(tagList.length).toEqual(mockTags.length);
     expect(tagList[0].querySelectorAll("a").length).toEqual(1);
-    expect(tagList[0].querySelector("a").innerText).toEqual(
-      mockTags[0].TagName
-    );
+    expect(tagList[0].querySelector("a").innerText).toEqual(mockTags[0].Tag);
     expect(tagList[1].querySelectorAll("a").length).toEqual(1);
-    expect(tagList[1].querySelector("a").innerText).toEqual(
-      mockTags[1].TagName
-    );
+    expect(tagList[1].querySelector("a").innerText).toEqual(mockTags[1].Tag);
   });
 });

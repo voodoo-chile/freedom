@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { TagSearchComponent } from './tag-search.component';
+import { TagSearchComponent } from "./tag-search.component";
 
-describe('TagSearchComponent', () => {
+describe("TagSearchComponent", () => {
   let component: TagSearchComponent;
   let fixture: ComponentFixture<TagSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TagSearchComponent ]
-    })
-    .compileComponents();
+      declarations: [TagSearchComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,8 +18,7 @@ describe('TagSearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    console.log('help');
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -10,6 +10,7 @@ import { AnswerEditComponent } from "./answer-edit/answer-edit.component";
 import { AnswerGetComponent } from "./answer-get/answer-get.component";
 import { HomeComponent } from "./home/home.component";
 import { TagAddComponent } from "./tag-add/tag-add.component";
+import { TagGetComponent } from "./tag-get/tag-get.component";
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: "tag/create",
     component: TagAddComponent
+  },
+  {
+    path: "tags",
+    component: TagGetComponent
   }
 ];
 
