@@ -26,6 +26,31 @@ tagRoutes.route("/").get(function (req, res) {
   });
 });
 
+tagRoutes.route("/edit/:id").get(function (req, res) {
+  let id = req.params.id;
+  Tag.findById(id, function (err, tag) {
+    res.json(tag);
+  });
+});
+
+tagRoutes.route("/update/:id").post(function (req, res) {
+  Tag.findById(req.params.id, function (err, tag) {
+    if (!tag) res.status(404).send("Record not found");
+    else {
+      tag.Tag = req.body.Tag;
+
+      tag
+        .save()
+        .then((tag) => {
+          res.json(tag);
+        })
+        .catch((err) => {
+          res.status(400).send("unable to update the database");
+        });
+    }
+  });
+});
+
 tagRoutes.route("/delete/:id").get(function (req, res) {
   Tag.findByIdAndRemove({ _id: req.params.id }, function (err, tag) {
     if (err) {

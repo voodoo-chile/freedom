@@ -11,49 +11,54 @@ import { AnswerGetComponent } from "./answer-get/answer-get.component";
 import { HomeComponent } from "./home/home.component";
 import { TagAddComponent } from "./tag-add/tag-add.component";
 import { TagGetComponent } from "./tag-get/tag-get.component";
+import { TagEditComponent } from "./tag-edit/tag-edit.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: "question/create",
-    component: QuestionAddComponent
+    component: QuestionAddComponent,
   },
   { path: "question/:id", component: QuestionShowComponent },
   {
     path: "question/edit/:id",
-    component: QuestionEditComponent
+    component: QuestionEditComponent,
   },
   {
     path: "questions",
-    component: QuestionGetComponent
+    component: QuestionGetComponent,
   },
   {
     path: "answer/create",
-    component: AnswerAddComponent
+    component: AnswerAddComponent,
   },
   {
     path: "answer/edit/:id",
-    component: AnswerEditComponent
+    component: AnswerEditComponent,
   },
   {
     path: "answers",
-    component: AnswerGetComponent
+    component: AnswerGetComponent,
   },
   {
     path: "tag/create",
-    component: TagAddComponent
+    component: TagAddComponent,
+  },
+  {
+    path: "tag/edit/:id",
+    component: TagEditComponent,
   },
   {
     path: "tags",
-    component: TagGetComponent
-  }
+    component: TagGetComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

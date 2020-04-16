@@ -21,7 +21,6 @@ export class TagGetComponent implements OnInit {
   ngOnInit() {
     this.ts.getTags().subscribe((data: Tag[]) => {
       this.tags = data;
-      console.log(this.tags);
     });
   }
 }

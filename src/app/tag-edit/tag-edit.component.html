@@ -1,1 +1,37 @@
-<p>tag-edit works!</p>
+<div *ngIf="tag" class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Tag</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="Tag"
+          #Tag
+          id="tagInput"
+        />
+      </div>
+      <div
+        *ngIf="
+          angForm.controls['Tag'].invalid &&
+          (angForm.controls['Tag'].dirty || angForm.controls['Tag'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="angForm.controls['Tag'].errors.required">
+          Tag name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          (click)="updateTag(Tag.value)"
+          type="submit"
+          [disabled]="angForm.invalid"
+          class="btn btn-primary"
+        >
+          Update Tag
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

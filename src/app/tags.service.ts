@@ -29,8 +29,8 @@ export class TagsService {
     return this.http.get(`${this.uri}/edit/${id}`);
   }
 
-  updateTag(TagName, id) {
-    const obj = { TagName };
+  updateTag(Tag, id) {
+    const obj = { Tag };
     return this.http
       .post(`${this.uri}/update/${id}`, obj)
       .subscribe((res) => this.router.navigate(["tags"]));
